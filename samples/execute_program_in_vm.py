@@ -26,6 +26,8 @@ python execute_program_in_vm.py
 """
 from __future__ import with_statement
 import atexit
+import re
+import time
 from tools import cli
 from pyVim import connect
 from pyVmomi import vim, vmodl
@@ -138,7 +140,7 @@ def main():
                     elif (re.match('[1-9]+', str(pid_exitcode))):
                         print "ERROR: Program %d completed with Failute" % res
                         print "  tip: Try running this on guest %r to debug" \
-                            % summary.guest.ipAddress
+                            % vm.summary.guest.ipAddress
                         print "ERROR: More info on process"
                         print pm.ListProcessesInGuest(vm, creds, [res])
                         break
