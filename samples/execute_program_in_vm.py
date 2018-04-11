@@ -26,6 +26,8 @@ python execute_program_in_vm.py
 """
 from __future__ import with_statement
 import atexit
+import re
+import time
 from tools import cli
 from pyVim import connect
 from pyVmomi import vim, vmodl
